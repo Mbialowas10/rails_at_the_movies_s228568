@@ -1,7 +1,21 @@
 require "csv"
 
 #Movie.delete_all
-ProductionCompany.delete_all
+#ProductionCompany.delete_all
+Page.delete_all
+
+Page.create(
+  title: 'About the data',
+  content: 'The data powering this awesome website was taken from Kaggle.',
+  permalink: 'about_the_data'
+
+)
+Page.create(
+  title: 'Contact us',
+  content: 'Read out to me if you want to discuss coding, or just life :)',
+  permalink: 'contact'
+
+)
 
 filename = Rails.root.join("db/top_movies.csv")
 puts "Loading Movies from the csv file: #{filename}"
