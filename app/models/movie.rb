@@ -6,4 +6,7 @@ class Movie < ApplicationRecord
   #validates :year, :duration, numericality: {only_integer: true}
   #validates :average_vote,numericality:true
 
+  has_many :movie_genres
+  has_many :genres, through: :movie_genres
+
 end

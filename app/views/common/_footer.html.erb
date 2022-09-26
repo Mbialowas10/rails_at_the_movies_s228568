@@ -1,0 +1,11 @@
+<hr>
+<footer>
+<p>
+  <em>Copywrong IMDB 2022</em>
+</p>
+<ul class="mt-5">
+  <% cms_pages.each do |page|  %>
+    <li><%= link_to page.title, permalink_path(page.permalink) %></li>
+  <% end %>
+</ul>
+</footer>

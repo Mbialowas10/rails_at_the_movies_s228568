@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  #resources :pages
+
+
+
   root to: "home#index"
   #get 'home/index'
   get 'production_companies/index'
@@ -9,7 +13,17 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "articles#index"
-  resources :movies, only: [:index, :show]
+  resources :movies, only: [:index, :show] do
+    #movies/search/(:format)
+    collection do
+        get "search"
+      end
+    end
+
+
   resources :production_companies, only: [:index, :show]
 
-end
+  resources :pages, except: [:show] # not show route gets generated
+  get '/pages/:permalink' => "pages#permalink", as: 'permalink'
+
+  end
